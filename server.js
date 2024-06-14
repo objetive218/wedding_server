@@ -11,16 +11,7 @@ const { default: helmet } = require("helmet");
 const app = express();
 
 app.use(express.json());
-app.use(
-  helmet(
-    {
-      crossOriginResourcePolicy: false,
-    },
-    {
-      referrerPolicy: false,
-    }
-  )
-);
+app.use(helmet());
 app.use(cors());
 connectDb();
 /*
