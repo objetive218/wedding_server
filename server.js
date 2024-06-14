@@ -11,12 +11,12 @@ const { default: helmet } = require("helmet");
 const app = express();
 
 app.use(express.json());
-app.use(cors());
 app.use(
   helmet({
     crossOriginResourcePolicy: false,
   })
 );
+app.use(cors());
 connectDb();
 /*
 app.use((req, res, next) => {
