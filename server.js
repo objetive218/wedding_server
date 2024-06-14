@@ -12,7 +12,11 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
-app.use(helmet())
+app.use(
+  helmet({
+    crossOriginOpenerPolicy: false,
+  })
+);
 connectDb();
 /*
 app.use((req, res, next) => {
@@ -29,13 +33,11 @@ app.get("/", (req, res) => {
 
 app.get("/invitations", async (req, res) => {
   const invitations = await Single.find();
-  if(res){
-
+  if (res) {
     res.json({ invitations: invitations });
-  }else {
+  } else {
     res.status(404).end();
   }
-
 });
 
 //get invitation name
@@ -71,10 +73,9 @@ app.post("/invitations", async (req, res) => {
     typeInvitation: typeInvitation,
     gender: gender,
   });
-  if(single){
-
+  if (single) {
     res.json({ single: single });
-  }else {
+  } else {
     res.status(404).end();
   }
 });
@@ -91,9 +92,9 @@ app.put("/invitations/:id", async (req, res) => {
   });
 
   const invitation = await Single.findById(invitationId);
-  if(invitation){
+  if (invitation) {
     res.json({ invitation: invitation });
-  }else {
+  } else {
     res.status(404).end();
   }
 });
