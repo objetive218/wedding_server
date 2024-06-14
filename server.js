@@ -19,6 +19,9 @@ app.use(
     },
     {
       referrerPolicy: false,
+    },
+    {
+      xPermittedCrossDomainPolicies: false,
     }
   )
 );
