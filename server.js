@@ -12,9 +12,14 @@ const app = express();
 
 app.use(express.json());
 app.use(
-  helmet({
-    crossOriginResourcePolicy: false,
-  })
+  helmet(
+    {
+      crossOriginResourcePolicy: false,
+    },
+    {
+      referrerPolicy: false,
+    }
+  )
 );
 app.use(cors());
 connectDb();
