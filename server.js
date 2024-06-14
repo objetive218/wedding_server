@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(cors());
 app.use(
   helmet({
-    crossOriginOpenerPolicy: false,
+    crossOriginResourcePolicy: false,
   })
 );
 connectDb();
