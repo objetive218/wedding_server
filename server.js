@@ -23,7 +23,8 @@ app.use(
     },
     {
       referrerPolicy: false,
-    }
+    },
+    { crossOriginEmbedderPolicy: false }
   )
 );
 connectDb();
