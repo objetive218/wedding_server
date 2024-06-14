@@ -9,6 +9,7 @@ const Single = require("./models/single");
 const { default: helmet } = require("helmet");
 
 const app = express();
+app.use(cors());
 
 app.use(express.json());
 app.use(
@@ -21,7 +22,6 @@ app.use(
     }
   )
 );
-app.use(cors());
 connectDb();
 /*
 app.use((req, res, next) => {
