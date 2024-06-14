@@ -14,7 +14,7 @@ app.use(cors());
 app.use(express.json());
 app.use(
   helmet(
-    { crossOriginResourcePolicy: { policy: "same-site" } },
+    { crossOriginResourcePolicy: false },
     {
       referrerPolicy: false,
     },
